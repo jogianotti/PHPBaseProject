@@ -1,3 +1,6 @@
+.PHONY: init
+init: build start deps
+
 .PHONY: start
 start:
 	docker-compose up --detach
@@ -14,4 +17,4 @@ build:
 deps: composer/install
 
 composer/install:
-	docker-compose exec --user $(id -u):$(id -g) php composer install
+	docker-compose exec php composer install
